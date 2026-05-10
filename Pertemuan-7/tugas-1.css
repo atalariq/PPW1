@@ -1,0 +1,108 @@
+/* ── Reset ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  min-height: 200vh;
+}
+
+/* ── Sticky Navbar ── */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: royalblue;
+  color: white;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+/* ── Container ── */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* ── Kartu Profil (Relative) ── */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 280px;
+  height: 350px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  padding: 24px;
+  text-align: center;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  background-color: royalblue;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-card h2 {
+  font-size: 1.25rem;
+  color: darkslategrey;
+  margin-bottom: 4px;
+}
+
+.profile-card .role {
+  font-size: 0.875rem;
+  color: slategrey;
+  margin-bottom: 1rem;
+}
+
+/* ── Status Badge (Absolute) ── */
+.status {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: limegreen;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 10;
+}
+
+/* ── Back to Top (Fixed) ── */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background-color: orangered;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  z-index: 999;
+  font-family: "Fira Code", monospace;
+}
+
+.back-to-top:hover {
+  background-color: indianred;
+}
