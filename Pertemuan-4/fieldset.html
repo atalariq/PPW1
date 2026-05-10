@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contoh Fieldset & Legend</title>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Data Pribadi</legend>
+        <label for="nama">Nama:</label>
+        <input
+          type="text"
+          id="nama"
+          name="nama"
+          placeholder="Nama lengkap"
+        /><br />
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="email@contoh.com"
+        />
+      </fieldset>
+
+      <fieldset>
+        <legend>Data Akademik</legend>
+        <label for="nim">NIM:</label>
+        <input
+          type="text"
+          id="nim"
+          name="nim"
+          placeholder="Nomor Induk Mahasiswa"
+        /><br />
+        <label for="angkatan">Angkatan:</label>
+        <input
+          type="number"
+          id="angkatan"
+          name="angkatan"
+          min="2000"
+          max="2030"
+        />
+      </fieldset>
+
+      <button type="submit">Simpan</button>
+    </form>
+  </body>
+</html>

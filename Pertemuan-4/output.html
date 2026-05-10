@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contoh Output</title>
+  </head>
+  <body>
+    <form
+      oninput="
+        hasil.value = (+ujian.value * 0.6 + +tugas.value * 0.4).toFixed(1)
+      "
+    >
+      <label for="ujian">Nilai Ujian (bobot 60%):</label>
+      <input
+        type="number"
+        id="ujian"
+        name="ujian"
+        min="0"
+        max="100"
+        value="0"
+      />
+      <br />
+      <label for="tugas">Nilai Tugas (bobot 40%):</label>
+      <input
+        type="number"
+        id="tugas"
+        name="tugas"
+        min="0"
+        max="100"
+        value="0"
+      />
+      <br />
+      <label>
+        Nilai Akhir:
+        <output id="hasil" name="hasil" for="ujian tugas">0</output>
+      </label>
+    </form>
+  </body>
+</html>

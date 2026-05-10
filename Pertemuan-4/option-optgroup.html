@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contoh Option & Optgroup</title>
+  </head>
+  <body>
+    <form>
+      <label for="prodi">Program Studi:</label>
+      <select id="prodi" name="prodi" required>
+        <!-- option sebagai placeholder yang tidak bisa dipilih -->
+        <option value="" disabled selected>-- Pilih Program Studi --</option>
+
+        <!-- optgroup mengelompokkan option berdasarkan kategori -->
+        <optgroup label="Sekolah Vokasi">
+          <option value="ti">Teknologi Informasi</option>
+          <option value="el-sv">Teknologi Listrik</option>
+          <option value="me-sv">Teknologi Mesin</option>
+          <option value="ak-sv">Akuntansi</option>
+        </optgroup>
+
+        <optgroup label="Fakultas Teknik">
+          <option value="if">Informatika</option>
+          <option value="ee">Teknik Elektro</option>
+          <option value="ce">Teknik Sipil</option>
+        </optgroup>
+
+        <optgroup label="Fakultas MIPA">
+          <option value="cs">Ilmu Komputer</option>
+          <option value="math">Matematika</option>
+          <option value="phys">Fisika</option>
+        </optgroup>
+      </select>
+      <button type="submit">Pilih</button>
+    </form>
+  </body>
+</html>

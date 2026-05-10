@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Mahasiswa Baru</title>
+  </head>
+  <body>
+
+    <!-- Gambar di ATAS form -->
+    <img src="img/banner-ugm.png"
+      alt="Banner Universitas Gadjah Mada" height="128">
+
+    <h1>Formulir Pendaftaran Mahasiswa Baru</h1>
+    <p>Universitas Gadjah Mada &mdash; Tahun Akademik 2025/2026</p>
+
+    <form action="/proses-daftar" method="post" enctype="multipart/form-data">
+
+      <!-- ── Fieldset 1: Foto Profil ── -->
+      <fieldset>
+        <legend>Foto Profil</legend>
+
+        <!-- Gambar foto profil DI DALAM form -->
+        <img src="img/pas-foto.png" height="96"
+          alt="Foto Profil Pendaftar">
+
+        <label for="foto">Unggah Foto (JPG/PNG, maks. 2 MB):</label>
+        <input type="file" id="foto" name="foto" accept="image/jpeg,image/png">
+      </fieldset>
+
+      <!-- ── Fieldset 2: Data Pribadi ── -->
+      <fieldset>
+        <legend>Data Pribadi</legend>
+
+        <label for="nama">Nama Lengkap (sesuai KTP):</label>
+        <input type="text" id="nama" name="nama"
+          placeholder="Nama lengkap tanpa gelar"
+          required autofocus>
+
+        <label for="nik">Nomor Induk Kependudukan (NIK):</label>
+        <input type="text" id="nik" name="nik"
+          placeholder="16 digit NIK" maxlength="16" size="20" required>
+
+        <label for="ttl">Tanggal Lahir:</label>
+        <input type="date" id="ttl" name="ttl" required>
+
+        <label for="jk">Jenis Kelamin:</label>
+        <select id="jk" name="jk" required>
+          <option value="" disabled selected>-- Pilih --</option>
+          <optgroup label="Jenis Kelamin">
+            <option value="L">Laki-laki</option>
+            <option value="P">Perempuan</option>
+          </optgroup>
+        </select>
+
+        <label for="agama">Agama:</label>
+        <select id="agama" name="agama" required>
+          <option value="" disabled selected>-- Pilih Agama --</option>
+          <optgroup label="Agama yang diakui">
+            <option value="islam">Islam</option>
+            <option value="kristen">Kristen Protestan</option>
+            <option value="katolik">Katolik</option>
+            <option value="hindu">Hindu</option>
+            <option value="buddha">Buddha</option>
+            <option value="konghucu">Konghucu</option>
+          </optgroup>
+        </select>
+
+        <label for="email">Alamat Email:</label>
+        <input type="email" id="email" name="email"
+          placeholder="contoh@email.com" required>
+
+        <label for="telp">Nomor Telepon:</label>
+        <input type="tel" id="telp" name="telp" placeholder="08xxxxxxxxxx">
+
+        <label for="alamat">Alamat Domisili:</label>
+        <textarea id="alamat" name="alamat" rows="3"
+          placeholder="Jalan, nomor, RT/RW, kelurahan, kecamatan, kota"></textarea>
+      </fieldset>
+
+      <!-- ── Fieldset 3: Data Akademik ── -->
+      <fieldset>
+        <legend>Data Akademik</legend>
+
+        <label for="prodi">Program Studi yang Dituju:</label>
+        <select id="prodi" name="prodi" required>
+          <option value="" disabled selected>-- Pilih Program Studi --</option>
+          <optgroup label="Sekolah Vokasi">
+            <option value="ti-sv">Teknologi Informasi (D4)</option>
+            <option value="el-sv">Teknologi Listrik (D4)</option>
+            <option value="ak-sv">Akuntansi (D4)</option>
+          </optgroup>
+          <optgroup label="Fakultas Teknik">
+            <option value="if-s1">Informatika (S1)</option>
+            <option value="ee-s1">Teknik Elektro (S1)</option>
+            <option value="ce-s1">Teknik Sipil (S1)</option>
+          </optgroup>
+          <optgroup label="Fakultas MIPA">
+            <option value="cs-s1">Ilmu Komputer (S1)</option>
+            <option value="math-s1">Matematika (S1)</option>
+          </optgroup>
+        </select>
+
+        <label for="asal-sekolah">Asal SMA/SMK:</label>
+        <input type="text" id="asal-sekolah" name="asal-sekolah"
+          list="daftar-sekolah"
+          placeholder="Ketik nama sekolah...">
+        <datalist id="daftar-sekolah">
+          <option value="SMA Negeri 1 Yogyakarta">
+            <option value="SMA Negeri 3 Yogyakarta">
+              <option value="SMA Negeri 8 Yogyakarta">
+                <option value="SMA Negeri 1 Sleman">
+                  <option value="SMA Muhammadiyah 1 Yogyakarta">
+                    <option value="SMA Budi Mulia Yogyakarta">
+                      <option value="SMK Negeri 2 Yogyakarta">
+        </datalist>
+
+        <label for="tahun-lulus">Tahun Lulus:</label>
+        <input type="number" id="tahun-lulus" name="tahun-lulus"
+          min="2010" max="2030" placeholder="Contoh: 2024">
+      </fieldset>
+
+      <!-- Field readonly: informatif, nilainya tetap terkirim -->
+      <label for="jalur">Jalur Pendaftaran:</label>
+      <input type="text" id="jalur" name="jalur"
+        value="Seleksi Mandiri 2025" readonly>
+      </fieldset>
+
+      <!-- ── Fieldset 5: Pernyataan ── -->
+      <fieldset>
+        <legend>Pernyataan Pendaftar</legend>
+        <label>
+          <input type="checkbox" name="setuju" required>
+          Saya menyatakan bahwa seluruh data yang saya isikan adalah benar,
+          lengkap, dan dapat dipertanggungjawabkan.
+        </label>
+      </fieldset>
+
+      <button type="submit"
+        formaction="/simpan-draft" formmethod="post">
+        Simpan Draft
+      </button>
+      <button type="submit"
+        formaction="/kirim-final" formmethod="post">
+        Kirim Pendaftaran
+      </button>
+      <button type="reset">Reset</button>
+    </form>
+  </body>
+</html>

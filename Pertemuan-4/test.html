@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>readonly vs disabled</title>
+  </head>
+  <body>
+  <form action="/cek-data" method="post">
+    <!-- Normal: bisa diubah, terkirim -->
+    <label>Normal:</label>
+    <input type="text" name="field-normal" value="Bisa diubah">
+
+    <!-- Readonly: tidak bisa diubah, tapi TERKIRIM -->
+    <label>Readonly:</label>
+    <input type="text" name="field-readonly" value="Terkunci (tetap terkirim)"
+           readonly>
+
+    <!-- Disabled: tidak aktif sama sekali, TIDAK TERKIRIM -->
+    <label>Disabled:</label>
+    <input type="text" name="field-disabled" value="Tidak aktif (tidak terkirim)"
+           disabled>
+
+    <button type="submit">Submit & Lihat Data Terkirim</button>
+  </form>
+  </body>
+</html>

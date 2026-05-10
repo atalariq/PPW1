@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contoh Datalist</title>
+  </head>
+  <body>
+    <form>
+      <label for="kota">Kota Asal:</label>
+      <input
+        type="text"
+        id="kota"
+        name="kota"
+        list="daftar-kota"
+        placeholder="Ketik nama kota..."
+      />
+      <datalist id="daftar-kota">
+        <option value="Yogyakarta"></option>
+        <option value="Jakarta"></option>
+        <option value="Bandung"></option>
+        <option value="Surabaya"></option>
+        <option value="Semarang"></option>
+        <option value="Medan"></option>
+        <option value="Makassar"></option>
+      </datalist>
+      <button type="submit">Kirim</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form - Input Types</title>
+  </head>
+  <body>
+    <form>
+      <!-- Input teks dan email -->
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" name="nama" placeholder="Nama lengkap" />
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="contoh@email.com"
+      />
+
+      <!-- Input angka dengan batas min/max -->
+      <label for="usia">Usia:</label>
+      <input type="number" id="usia" name="usia" min="1" max="120" />
+
+      <!-- Input tanggal -->
+      <label for="tgl">Tanggal Lahir:</label>
+      <input type="date" id="tgl" name="tgl" />
+
+      <!-- Radio button (satu pilihan) -->
+      <p>Jenis Kelamin:</p>
+      <input type="radio" id="jk-l" name="jk" value="L" />
+      <label for="jk-l">Laki-laki</label>
+      <input type="radio" id="jk-p" name="jk" value="P" />
+      <label for="jk-p">Perempuan</label>
+
+      <!-- Checkbox (banyak pilihan) -->
+      <p>Hobi:</p>
+      <input type="checkbox" id="membaca" name="hobi" value="membaca" />
+      <label for="membaca">Membaca</label>
+      <input type="checkbox" id="olahraga" name="hobi" value="olahraga" />
+      <label for="olahraga">Olahraga</label>
+
+      <!-- Input file -->
+      <label for="foto">Foto:</label>
+      <input type="file" id="foto" name="foto" accept="image/*" />
+
+      <input type="submit" value="Kirim" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+</html>

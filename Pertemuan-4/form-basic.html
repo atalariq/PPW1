@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/daftar" method="post" target="_self">
+      <label for="nama">Nama Lengkap:</label>
+      <input type="text" id="nama" name="nama" />
+
+      <input type="submit" value="Kirim" />
+    </form>
+
+    <!-- Contoh form pencarian dengan method GET -->
+    <form action="/cari" method="get">
+      <input type="text" name="q" placeholder="Kata kunci..." />
+      <button type="submit">Cari</button>
+    </form>
+  </body>
+</html>

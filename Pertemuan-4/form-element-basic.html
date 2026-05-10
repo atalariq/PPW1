@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Element Basic</title>
+  </head>
+  <body>
+    <form action="/kirim" method="post">
+      <!-- Label eksplisit menggunakan atribut for -->
+      <label for="kota">Pilih Kota:</label>
+      <select id="kota" name="kota">
+        <option value="yk">Yogyakarta</option>
+        <option value="jkt">Jakarta</option>
+        <option value="bdg">Bandung</option>
+      </select>
+
+      <!-- Textarea multi-baris -->
+      <label for="pesan">Pesan:</label>
+      <textarea
+        id="pesan"
+        name="pesan"
+        rows="5"
+        cols="40"
+        placeholder="Tuliskan pesan Anda di sini..."
+      ></textarea>
+
+      <!-- Tombol submit dan reset -->
+      <button type="submit">Kirim Pesan</button>
+      <button type="reset">Bersihkan</button>
+    </form>
+  </body>
+</html>

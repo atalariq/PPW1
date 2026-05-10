@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Table</title>
+  </head>
+  <body>
+    <h1>Tabel</h1>
+    <p>
+      Setiap tabel dimulai dengan tag table.<br />
+      Setiap baris tabel dimulai dengan tag tr.<br />
+      Setiap data dalam tabel dimulai dengan tag td.
+    </p>
+
+    <h2>Membuat Table</h2>
+    <h3>Satu baris satu kolom dengan border normal:</h3>
+    <table border="1">
+      <tr>
+        <td>100</td>
+      </tr>
+    </table>
+
+    <h3>Satu baris dan tiga kolom dengan border tebal:</h3>
+    <table border="8">
+      <tr>
+        <td>100</td>
+        <td>200</td>
+        <td>300</td>
+      </tr>
+    </table>
+
+    <h3>Dua baris dan tiga kolom dengan border sangat tebal:</h3>
+    <table border="15">
+      <tr>
+        <td>100</td>
+        <td>200</td>
+        <td>300</td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>500</td>
+        <td>600</td>
+      </tr>
+    </table>
+
+    <h3>Tabel ini tidak memiliki border:</h3>
+    <table border="0">
+      <tr>
+        <td>100</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <td>300</td>
+        <td>400</td>
+      </tr>
+    </table>
+
+    <h2>Sel Kosong dalam tabel:</h2>
+    <table border="1">
+      <tr>
+        <td>Teks</td>
+        <td>Teks</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Teks</td>
+      </tr>
+    </table>
+
+    <p>
+      Seperti yang Anda lihat, salah satu sel tidak memiliki border. Itu terjadi
+      karena sel tersebut kosong. Cobalah untuk menyisipkan sebuah spasi ke
+      dalam sel tersebut. Ternyata tetap saja tidak memiliki border.
+    </p>
+
+    <p>
+      Cara yang benar adalah dengan menyisipkan spasi non-breaking di dalam sel.
+    </p>
+
+    <p>
+      Spasi non-breaking adalah sebuah entitas karakter. Bila Anda tidak
+      mengetahui apa yang disebut karakter entitas, baca kembali materi kuliah
+      tentang hal tersebut.
+    </p>
+
+    <p>
+      Entitas spasi non-breaking dimulai dengan tanda ampersand ("&"), kemudian
+      karakter-karakter "nbsp", dan diakhiri dengan semicolon (";").
+    </p>
+
+    <table border="1">
+      <tr>
+        <td>Teks</td>
+        <td>Teks</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>Teks</td>
+      </tr>
+    </table>
+
+    <h2>Sel yang diperlebar:</h2>
+    <h3>Sel yang melebar dua kolom:</h3>
+    <table border="1">
+      <tr>
+        <th>Nama</th>
+        <th colspan="2">Telepon</th>
+      </tr>
+      <tr>
+        <td>Bill Gates</td>
+        <td>555 77 854</td>
+        <td>555 77 855</td>
+      </tr>
+    </table>
+
+    <h3>Sel yang melebar dua baris:</h3>
+    <table border="1">
+      <tr>
+        <th>Nama depan:</th>
+        <td>Bill Gates</td>
+      </tr>
+      <tr>
+        <th rowspan="2">Telepon:</th>
+        <td>555 77 854</td>
+      </tr>
+      <tr>
+        <td>555 77 855</td>
+      </tr>
+    </table>
+
+    <h2>Sel dengan warna latar belakang:</h2>
+    <table border="1" bgcolor="red">
+      <tr>
+        <td>Pertama</td>
+        <td>Baris</td>
+      </tr>
+      <tr>
+        <td>Kedua</td>
+        <td>Baris</td>
+      </tr>
+    </table>
+
+    <h4>Dengan latar belakang gambar:</h4>
+    <table border="1" background="../bg.jpg">
+      <tr>
+        <td>Pertama</td>
+        <td>Baris</td>
+      </tr>
+      <tr>
+        <td>Kedua</td>
+        <td>Baris</td>
+      </tr>
+    </table>
+
+    <h4>Latar belakang pada sel:</h4>
+    <table border="1">
+      <tr>
+        <td bgcolor="red">Pertama</td>
+        <td>Baris</td>
+      </tr>
+      <tr>
+        <td background="logo.png">Kedua</td>
+        <td>Baris</td>
+      </tr>
+    </table>
+
+    <h2>Layout web sederhana dengan tabel</h2>
+    <table border="1" width="100%">
+      <tr>
+        <td>
+          <a href="https://ugm.ac.id" target="iframe_target">Website UGM</a>
+        </td>
+        <td rowspan="2">
+          <iframe
+            src="https://ugm.ac.id"
+            name="iframe_target"
+            height="500"
+            width="100%"
+          ></iframe>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="https://ugm.ac.id/id/fakultas/sekolah-vokasi/"
+            target="iframe_target"
+            >Website Vokasi</a
+          >
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
