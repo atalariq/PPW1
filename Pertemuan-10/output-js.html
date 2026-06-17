@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Output JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .output-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      background: #fafafa;
+    }
+
+    .output-box h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Show Output JavaScript</h1>
+
+  <!-- OUTPUT 1: console.log()                     -->
+  <div class="output-box">
+    <h3>1. console.log()</h3>
+    <p>Go to console! Or press F12</p>
+  </div>
+
+  <!-- OUTPUT 2: alert()                           -->
+  <div class="output-box">
+    <h3>2. alert()</h3>
+    <button onclick="showAlert()">Click Me!</button>
+  </div>
+
+  <!-- OUTPUT 3: document.write()                  -->
+  <div class="output-box">
+    <h3>3. document.write()</h3>
+    <button onclick="writeDocs()">Click to overwrite all of this!</button>
+  </div>
+
+  <!-- OUTPUT 4: innerHTML                          -->
+  <div class="output-box">
+    <h3>4. innerHTML</h3>
+    <button onclick="updateText()">Click to update text below!</button>
+    <div id="text" style="margin-top: 10px; padding: 10px; background: #e3f2fd; border-radius: 4px;">
+      OLD: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, ad doloremque aut voluptates architecto
+      omnis veniam esse suscipit libero deleniti ea rem debitis, cupiditate laudantium nulla voluptas corporis commodi
+      minus!
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    console.log("=== OUTPUT CONSOLE.LOG() ===");
+    console.log("this message is from console.log().");
+    console.log("====================================");
+
+    function showAlert() {
+      alert("Alerta! 2+2=5 is not true.");
+    }
+
+    function writeDocs() {
+      document.write("<h1>Previous Page was changed by document.write()</h1>");
+      document.write("<p>document.write() write this page directly to HTML docs.</p>");
+      document.write("<p>All those previous content was overwritten.</p>");
+      document.write("<button onclick='location.reload()'>Click to Reset</button>");
+    }
+
+    function updateText() {
+      document.getElementById("text").innerHTML =
+        "New: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia officiis ipsum ratione fugit at incidunt, facilis et eius atque rem magni maiores id dolorem enim nulla quos porro. Neque, in!";
+    }
+  </script>
+
+</body>
+
+</html>

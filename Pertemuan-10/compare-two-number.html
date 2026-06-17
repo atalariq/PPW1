@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Two Number</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px auto; max-width: 900px; }
+        .result { padding: 1.5em; margin: 1.5em auto; border-radius: 4px; }
+        .greater { background: #d4edda; border: 1px solid #c3e6cb; }
+        .less { background: #f8d7da; border: 1px solid #f5c6cb; }
+        .equal  { background: #fff3cd; border: 1px solid #ffeeba; }
+    </style>
+</head>
+<body>
+
+    <h1>Compare Two Number</h1>
+
+    <p>Click the Button to Compare The Number</p>
+    <button onclick="compareTwoNumber()">Start Compare</button>
+
+    <div id="output"></div>
+
+    <script>
+        function compareTwoNumber() {
+            // --- Input & Check ---
+            let input1 = prompt("Enter 1st number:", "6");
+            let input2 = prompt("Enter 2nd number:", "7");
+
+            if (input1 === null || input2 === null) {
+                document.getElementById("output").innerHTML =
+                    "<p style='color: red;'>Input is missing. Try again!</p>";
+                return;
+            }
+
+            // --- Convert String to Number ---
+            let num1 = Number(input1);
+            let num2 = Number(input2);
+
+            // --- Validation: Inputed Number is Valid Number ---
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("output").innerHTML =
+                    "<p style='color: red;'>Input must be number. Try ageain!</p>";
+                return;
+            }
+
+            // --- Main Logic & View ---
+            let resultHTML = "";
+            let classCSS = "";
+            let summary = "";
+
+            if (num1 > num2) {
+                resultHTML = `1st NUMBER IS <strong>GREATER THAN</strong> 2nd NUMBER`;
+                classCSS = "bigger";
+                summary = `${num1} > ${num2}`;
+            } else if (num1 < num2) {
+                resultHTML = `1st NUMBER IS <strong>LESS THAN</strong> 2nd NUMBER`;
+                classCSS = "smaller";
+                summary = `${num1} < ${num2}`;
+            } else {
+                resultHTML = `1st NUMBER IS <strong>EQUAL TO</strong> 2nd NUMBER`;
+                classCSS = "equal";
+                summary = `${num1} = ${num2}`;
+            }
+
+            // --- Output ---
+            document.getElementById("output").innerHTML = `
+                <div class="result ${classCSS}">
+                    <h3>Compare Result:</h3>
+                    <p>1st Number: <b>${num1}</b></p>
+                    <p>2nd Number: <b>${num2}</b></p>
+                    <p style="font-size: 1.2em;"><b>${resultHTML}</b></p>
+                    <p>Summary: <b>${summary}</b></p>
+                </div>
+            `;
+
+        }
+    </script>
+
+</body>
+</html>

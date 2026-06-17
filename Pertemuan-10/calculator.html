@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        /* ==============================================
+           Flexoki Light — color palette
+           https://stephango.com/flexoki
+           ============================================== */
+        :root {
+            /* Base */
+            --paper: #FFFCF0;
+            --bg-2:  #F2F0E5;
+            --ui:    #E6E4D9;
+            --ui-2:  #DAD8CE;
+            --ui-3:  #CECDC3;
+            --tx-3:  #B7B5AC;
+            --tx-2:  #878580;
+            --tx:    #100F0F;
+
+            /* Accents */
+            --re: #AF3029;  /* red */
+            --or: #BC5215;  /* orange */
+            --ye: #AD8301;  /* yellow */
+            --gr: #66800B;  /* green */
+            --cy: #24837B;  /* cyan */
+            --bl: #205EA6;  /* blue */
+            --pu: #5E409D;  /* purple */
+            --ma: #A02F6F;  /* magenta */
+        }
+
+        /* --- Reset & base --- */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--ui);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- Calculator body --- */
+        .calc {
+            background: var(--paper);
+            border-radius: 20px;
+            padding: 20px;
+            width: 480px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08),
+                        0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        /* --- Display --- */
+        .calc-display {
+            background: var(--bg-2);
+            border-radius: 12px;
+            padding: 20px 16px;
+            margin-bottom: 16px;
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+        .calc-expression {
+            font-size: 0.9rem;
+            color: var(--tx-2);
+            min-height: 22px;
+            word-break: break-all;
+            text-align: right;
+            max-width: 100%;
+        }
+        .calc-result {
+            font-size: 2.4rem;
+            font-weight: 350;
+            color: var(--tx);
+            word-break: break-all;
+            text-align: right;
+            max-width: 100%;
+            line-height: 1.2;
+        }
+
+        /* --- Button grid --- */
+        .calc-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        /* --- Button base --- */
+        .btn {
+            border: none;
+            border-radius: 12px;
+            padding: 18px 0;
+            font-size: 1.4rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.08s, box-shadow 0.08s;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+
+            /* Subtle 3D press effect via box-shadow */
+            position: relative;
+            top: 0;
+        }
+        .btn:active {
+            transform: translateY(3px);
+        }
+
+        /* --- Number buttons --- */
+        .btn-number {
+            background: var(--bg-2);
+            color: var(--tx);
+            box-shadow: 0 3px 0 var(--ui-2);
+        }
+        .btn-number:hover {
+            background: #eeecdf;
+        }
+        .btn-number:active {
+            box-shadow: 0 0 0 var(--ui-2);
+        }
+
+        /* --- Operator buttons --- */
+        .btn-operator {
+            background: var(--ui);
+            color: var(--tx);
+            box-shadow: 0 3px 0 var(--ui-3);
+        }
+        .btn-operator:hover {
+            background: #dddace;
+        }
+        .btn-operator:active {
+            box-shadow: 0 0 0 var(--ui-3);
+        }
+
+        /* --- Function buttons (C, ⌫, %) --- */
+        .btn-function {
+            background: var(--ui-2);
+            color: var(--tx-2);
+            box-shadow: 0 3px 0 var(--ui-3);
+        }
+        .btn-function:hover {
+            background: #cecbbd;
+        }
+        .btn-function:active {
+            box-shadow: 0 0 0 var(--ui-3);
+        }
+
+        /* --- Equals button --- */
+        .btn-equals {
+            background: var(--cy);
+            color: var(--paper);
+            box-shadow: 0 3px 0 #1b6b65;
+            font-size: 1.6rem;
+        }
+        .btn-equals:hover {
+            background: #1f766f;
+        }
+        .btn-equals:active {
+            box-shadow: 0 0 0 #1b6b65;
+        }
+
+        /* --- Span 2 columns for 0 button --- */
+        .btn-zero {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calc">
+        <!-- Display -->
+        <div class="calc-display">
+            <div class="calc-expression" id="expression"></div>
+            <div class="calc-result" id="display">0</div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="calc-buttons">
+            <button class="btn btn-function" onclick="handleClear()">C</button>
+            <button class="btn btn-function" onclick="handleBackspace()">⌫</button>
+            <button class="btn btn-function" onclick="handlePercent()">%</button>
+            <button class="btn btn-operator" onclick="handleOperator('/')">÷</button>
+
+            <button class="btn btn-number" onclick="inputDigit('7')">7</button>
+            <button class="btn btn-number" onclick="inputDigit('8')">8</button>
+            <button class="btn btn-number" onclick="inputDigit('9')">9</button>
+            <button class="btn btn-operator" onclick="handleOperator('*')">×</button>
+
+            <button class="btn btn-number" onclick="inputDigit('4')">4</button>
+            <button class="btn btn-number" onclick="inputDigit('5')">5</button>
+            <button class="btn btn-number" onclick="inputDigit('6')">6</button>
+            <button class="btn btn-operator" onclick="handleOperator('-')">−</button>
+
+            <button class="btn btn-number" onclick="inputDigit('1')">1</button>
+            <button class="btn btn-number" onclick="inputDigit('2')">2</button>
+            <button class="btn btn-number" onclick="inputDigit('3')">3</button>
+            <button class="btn btn-operator" onclick="handleOperator('+')">+</button>
+
+            <button class="btn btn-number btn-zero" onclick="inputDigit('0')">0</button>
+            <button class="btn btn-number" onclick="inputDecimal()">.</button>
+            <button class="btn btn-equals" onclick="handleEquals()">=</button>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+
+</body>
+</html>

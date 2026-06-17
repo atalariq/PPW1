@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Javascript</title>
+
+    <!-- Method 1a: Embed (inside <head> tag) -->
+    <script>
+        function helloWorld() {
+            alert("Hello, World!");
+        }
+    </script>
+</head>
+<body>
+
+    <h1>3 Ways to Use Javascript</h1>
+
+    <h2>Embed</h2>
+
+    <!-- Call function from script above (inside <head> tag) -->
+    <button onclick="helloWorld()">Check</button>
+
+    <!-- Method 1b: Embed (inside <body> tag) -->
+    <script>
+        // Menulis langsung ke halaman HTML saat dokumen dimuat
+        document.write("<p><i>Teks ini ditulis oleh JavaScript EMBED menggunakan document.write().</i></p>");
+
+        // console.log untuk debugging — lihat hasilnya di Console browser
+        console.log("Pesan dari EMBED JS: Halaman berhasil dimuat!");
+    </script>
+
+    <hr>
+
+    <!-- Method 2: Inline -->
+    <h2>Inline</h2>
+    <button onclick="alert('BOOM!!')">
+        Click Me!
+    </button>
+
+    <a href="javascript:alert('BAITED!! Next, e careful when you click random link')">Click This Link!</a>
+
+    <hr>
+
+    <!-- Method 3: External -->
+    <h2>External</h2>
+    <button onclick="consoleMessage()">console.log from external.js</button>
+    <button onclick="alertMessage()">alert from external.js</button>
+    <script src="external.js"></script>
+</body>
+</html>
